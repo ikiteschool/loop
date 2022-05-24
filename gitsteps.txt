@@ -1,6 +1,8 @@
 https://www.freecodecamp.org/news/git-ssh-how-to/
 https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/
 
+adicionar configuracao
+
 echo "# kiteloop" >> README.md
 git init
 git add README.md
