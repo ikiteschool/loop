@@ -1,0 +1,10 @@
+https://www.freecodecamp.org/news/git-ssh-how-to/
+https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/
+
+echo "# kiteloop" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:ikiteschool/kiteloop.git
+git push -u origin main
