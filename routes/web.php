@@ -26,6 +26,11 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::resource('doctor','DoctorController');
+Route::resource('instructor','InstructorController');
+Route::resource('phparrays','PhparraysController');
+Route::resource('consistenthashing','ConsistentHashing');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
