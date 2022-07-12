@@ -7,10 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ikiteschool') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- Date Picker -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,13 +22,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset('template/dist/css/theme.min.css')}}">
+
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'ikiteschool') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -57,10 +67,9 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">  
                                         {{ __('Logout') }}
-                                    </a>
-
+                                    </a>  
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -76,5 +85,39 @@
             @yield('content')
         </main>
     </div>
+
+  <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"}).val();
+    } );
+  </script>
+  <style type="text/css">
+          /* .ui-corner-all{
+              background: red;
+              color: $fff;
+          } */
+          body{
+              background:#fff;
+          }
+
+          label.btn{
+              padding:0;
+          }
+
+          label.btn input{
+            opacity: 0;
+            position: absolute;
+          }
+          label.btn span{
+              text-align: center;
+              padding:  6px 12px;
+              display: block;
+              min-width: 80px;
+          }
+          label.btn input:checked+span{
+              background-color: rgba(80,110,228);
+              color:#fff;
+          }
+  </style>
 </body>
 </html>
