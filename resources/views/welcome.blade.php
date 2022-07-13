@@ -20,6 +20,7 @@
     </div>
     <hr>
     <!--Search Doctor-->
+<form action="{{url('/')}}" method="GET">
     <div class="card">
         <div class="card-body">
             <div class="card-header">Find Doctors</div>
@@ -27,7 +28,7 @@
           
                 <div class="row">
                     <div class="col-md-8">
-                         <input type="text" name="date" class="form-control" id="datepicker">
+                         <input type="text" name="date" class="form-control" id="datepicker" autocomplete="off">
                     </div>
                     <div class="col-md-4">
                         <button class="btn btn-primary" type="submit">Find Doctors</button>
@@ -36,6 +37,7 @@
             </div>
         </div>
     </div>
+    </form>
     <!-- Display Doctors -->
     <div class="card">
         <div class="card-body">

@@ -19,25 +19,44 @@
         </div>
 
         <div class="col-md-9">
-            <form action="" method="post">
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{Session::get('message')}}
+                </div>
+            @endif
+
+            <form action="{{route('booking.appointment')}}" method="post">@csrf
             <div class="card">
-                <div class="card-header">{{$date}}</div>
+                <div class="card-header lead">{{$date}}</div>
 
                 <div class="card-body">
                    <div class="row">
                        @foreach($times as $time)
                        <div class="col-md-3">
                            <label class="btn btn-outline-primary">
-                                <input type="radio" name="status" value="1">
+                                <input type="radio" name="time" value="{{$time->time}}">
                                 <span>{{$time->time}}</span>
                            </label>
                        </div>
+                       <input type="hidden" name="doctorId" value="{{$doctor_id}}">
+                       <input type="hidden" name="apppointmentId" value="{{$time->appointment_id}}">
+                       <input type="hidden" name="date" value="{{$date}}">
                        @endforeach
                    </div>
                 </div>
             </div>
             <div class="card-footer">
+                @if(Auth::check())
                 <button type="submit" class="btn-success" style="width:100%;">Schedule Appointment</button>
+                @else
+                    <p>Please login to make an appointment</p>
+                    <a href="/register">Register</a> |
+                    <a href="/login">Login</a>
+                @endif
             </div>
             </form>
         </div>
