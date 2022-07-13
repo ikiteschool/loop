@@ -22,6 +22,6 @@ class FrontendController extends Controller
         $times = Time::where('appointment_id',$appointment->id)->where('status',0)->get();
         $user = User::where('id',$doctorId)->first();
 
-        return view('appointment',compact('times','date'));
+        return view('appointment',compact('times','date','user'));
     }
 }

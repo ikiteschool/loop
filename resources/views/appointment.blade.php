@@ -10,9 +10,10 @@
                     <h4 class="text-center">
                         Doctor Information
                     </h4>
-                    <img src="/doctor/doctor.png" width="100px" style="border-radius: 50%;">
-                    <p>Name:</p>
-                    <p>Expertise:</p>
+                    <img src="{{asset('images')}}/{{$user->image}}" width="100px" style="border-radius: 50%;">
+                    <p class="lead">Name:{{ucfirst($user->name)}}</p>
+                    <p class="lead">Degree:{{$user->education}}</p>
+                    <p class="lead">Specilist:{{$user->department}}</p>
                 </div>
             </div>
         </div>
